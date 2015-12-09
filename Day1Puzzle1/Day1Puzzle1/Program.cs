@@ -1,15 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Day1Puzzle1
 {
-	class Program
+	public class Program
 	{
-		static void Main(string[] args)
+		public static void Main(string[] args)
 		{
+			var testFileText = File.ReadAllText("testfile.txt");
+			var numberFloorsUp = testFileText.Count(ch => ch == '(');
+			var numberFloorsDown = testFileText.Count(ch => ch == ')');
+			var resultingFloor = numberFloorsUp - numberFloorsDown;
+
+			Console.WriteLine($"You've ended up on floor {resultingFloor}.");
+			Console.ReadKey();
 		}
 	}
 }
